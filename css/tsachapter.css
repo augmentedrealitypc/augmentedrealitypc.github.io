@@ -1,0 +1,50 @@
+/* Specific to this page; do not copy to other pages */
+
+#tsa-logo {
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+}
+
+#group-pic {
+	width: 40vw;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.officer-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	width: 100vw;
+	margin-left: -12vw;
+	text-align: center;
+}
+
+.officer {
+	width: 250px;
+	margin: 5px;
+}
+
+.photo-container {
+	width: 250px;
+	height: 250px;
+}
+
+@media screen and (max-width: 900px) {
+
+	.officer-container {
+		width: initial;
+		margin-left: initial;
+	}
+
+	#group-pic {
+		width: 70vw;
+	}
+
+}

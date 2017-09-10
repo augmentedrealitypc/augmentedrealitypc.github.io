@@ -1,0 +1,63 @@
+<head>
+	<link href="css/cteprogram.css" rel="stylesheet">
+	<link href="css/ang-accordion.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div id="landing-container">
+		<img width="700" height="582" src="img/pc-logo.png">
+	</div>
+
+	<h1 id="landing">CTE PROGRAM</h1>
+
+	<md-card id="main-content">
+		
+	<div id="content-width">
+
+		<jk-carousel data="cteImages" item-template-url="'image-carousel.template.html'" max-width="700" max-height="400"></jk-carousel>
+
+		<h1>CTE Teacher Information</h1>
+
+		<md-table-container id="data-table">
+			<table md-table>
+				<thead md-head md-order="order">
+					<tr md-row>
+						<th md-column md-order-by="firstName">First Name</th>
+						<th md-column md-order-by="lastName">Last Name</th>
+						<th md-column>Courses Taught</th>
+						<th md-column>E-mail</th>
+						<th md-column>Website(s)</th>
+					</tr>
+				</thead>
+				<tbody md-body>
+					<tr md-row md-select-id="name" md-auto-select ng-repeat="teacher in teachers | orderBy : order.replace('-', '') : order.startsWith('-')">
+						<td md-cell>{{teacher.firstName}}</td>
+						<td md-cell>{{teacher.lastName}}</td>
+						<td md-cell>{{teacher.coursesTaught}}</td>
+						<td md-cell><a ng-href="{{'mailto:' + teacher.email}}">{{teacher.email}}</a></td>
+						<td md-cell ng-bind-html="displayWebsites(teacher.websites)"></td>
+					</tr>
+				</tbody>
+			</table>
+		</md-table-container>
+
+		<h1>CTE Course Descriptions (Click to Expand/Collapse)</h1>
+
+		<div class="md-accordion" ng-repeat="course in courseInfo">
+
+		    <md-toolbar ng-init="course.expanded = false" ng-click="course.expanded = !course.expanded" class="courseTitle">
+		        <div class="md-toolbar-tools">
+		            <h2>{{course.name}}</h2> 
+		        </div>
+		    </md-toolbar>
+		    <div ng-class="{courseContent:true, courseContentActive:course.expanded}">{{course.info}}</div>
+		<div>
+
+
+		
+	</div>
+
+	</md-card>
+
+</body>
