@@ -1,1 +1,85 @@
+<head>
+	<link href="css/tsachapter.css" rel="stylesheet">
+</head>
 
+<body>
+
+	<div id="landing-container">
+		<img width="700" height="582" src="img/pc-logo.png">
+	</div>
+
+	<h1 id="landing">OUR TSA CHAPTER</h1>
+
+	<md-card id="main-content">
+
+	<div id="content-width">
+
+		<img src="img/pctsalogo.jpg" id="pctsa-logo" />
+
+		<p>
+		Panther Creek boasts of a wonderful TSA chapter. Despite the school being relatively young, PCHS has been successful throughout TSA. Just last year, our video game design team achieved 5th place at the national TSA conference. Recently, the PCHS robotics team has taken a regional championship win and qualifies for VEX states for the first time in school history. PCHS is also doing well in other events such as animatronics, engineering, biotechnology, and has added a good Scientific Visualization program and good computer programming classes. Recently, PCHS has added AP Computer Science and AP Computer Science Principles to its plethora of CTE Courses.
+		</p>
+		<p>
+		This year, the Panther Creek TSA is raising money for the American Cancer Society by selling Krispy Kreme doughnuts. All of the profit made will be donated to ACS.	
+		</p>
+		
+		<jk-carousel data="tsaImages" item-template-url="'image-carousel.template.html'" max-width="700" max-height="400"></jk-carousel>
+
+		<h1>Panther Creek TSA Advisors</h1>
+
+		<md-table-container id="data-table">
+			<table md-table>
+				<thead md-head md-order="order">
+					<tr md-row>
+						<th md-column md-order-by="firstName">First Name</th>
+						<th md-column md-order-by="lastName">Last Name</th>
+						<th md-column>E-mail</th>
+						<th md-column>Room Number</th>
+					</tr>
+				</thead>
+				<tbody md-body>
+					<tr md-row md-select-id="name" md-auto-select ng-repeat="advisor in advisors | orderBy : order.replace('-', '') : order.startsWith('-')">
+						<td md-cell>{{advisor.firstName}}</td>
+						<td md-cell>{{advisor.lastName}}</td>
+						<td md-cell><a ng-href="{{'mailto:' + advisor.email}}">{{advisor.email}}</a></td>
+						<td md-cell>{{advisor.room}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</md-table-container>
+
+		<h1>Panther Creek TSA Officers</h1>
+
+		<md-card id="group-pic">
+			<img src="img/officers/group.png" alt="Group Picture">
+		</md-card>
+		
+		<div class="officer-container">
+
+		<div ng-repeat="officer in officers" class="officer">
+
+		<md-card>
+			<div class="photo-container">
+	        	<img ng-src="{{officer.photo}}" class="md-card-image" alt="{{officer.firstName}} {{officer.lastName}}">
+	        </div>
+	        <md-card-title>
+	          <md-card-title-text>
+	            <span class="md-headline">{{officer.firstName}} {{officer.lastName}}</span>
+	          </md-card-title-text>
+	        </md-card-title>
+	        <md-card-content>
+	          <p>
+	            {{officer.bio}}
+	          </p>
+	        </md-card-content>
+	      </md-card>
+
+		</div>
+		</div>
+
+
+
+	</div>
+	</md-card>
+	
+</body>
